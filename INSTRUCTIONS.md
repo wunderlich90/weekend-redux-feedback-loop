@@ -26,7 +26,7 @@ There will be 4 views for the form parts.
 
 The parts:
 - How are you feeling today?
-![feeling](wireframes/feeling.png)
+![feeling](wireframe s/feeling.png)
 - How well are you understanding the content?
 ![understanding](wireframes/understanding.png)
 - How well are you being supported?
