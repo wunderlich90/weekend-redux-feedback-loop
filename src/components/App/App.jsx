@@ -10,6 +10,7 @@ import CommentsForm from '../CommentsForm/CommentsForm';
 import FeelingsForm from '../FeelingsForm/FeelingsForm';
 import SupportForm from '../SupportForms/SupportForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback'
 import { NotificationResponseMessage } from 'pg-protocol/dist/messages';
 
 
@@ -58,6 +59,9 @@ function App() {
             </Route>
             <Route path='/comments' exact>
               <CommentsForm/>
+            </Route>
+            <Route path='/review'>
+              <ReviewFeedback/>
             </Route>
           </div>
         </div>

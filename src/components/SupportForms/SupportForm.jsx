@@ -1,15 +1,27 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 
 function UnderstandingForm() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const support = useSelector(store => store.supportReducer)
+    //const supported = useSelector(store => store.supportReducer)
+    const [supportInput, setSupportInput] = useState('');
+
 
     function onClick() {
-        history.push('/comments')
+        dispatch({
+            type: 'SET_SUPPORT_DATA',
+            payload: supportInput
+        })
+        if(!supportInput) {
+            alert('Please enter a support value 💪')
+        }
+        else {
+            history.push('/comments')
+        }
     }
 
 
@@ -28,7 +40,8 @@ function UnderstandingForm() {
             <input
                 type="number"
                 placeholder="Support?"
-                name="userSuppoirt"
+                onChange={(evt) => setSupportInput(evt.target.value)}
+                value={supportInput}
             />
             <button className="nextPage" onClick={onClick}>Next</button>
             </div>

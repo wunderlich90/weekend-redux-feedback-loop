@@ -1,15 +1,25 @@
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 
 function UnderstandingForm() {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const history = useHistory()
 
-    const understanding = useSelector(store => store.understandingReducer)
+  const [understandingInput, setUnderstandingInput] = useState('');
 
     function onClick() {
-        history.push('/support')
+        dispatch({
+            type: 'SET_UNDERSTANDING_DATA',
+            payload: understandingInput
+        })
+        if(!understandingInput) {
+            alert('Please enter a understanding value 🤔')
+        }
+        else {
+            history.push('/support')
+        }
     }
 
 
@@ -28,7 +38,9 @@ function UnderstandingForm() {
             <input
                 type="number"
                 placeholder="Understanding?"
-                name="userUnderstanding"
+                onChange={(evt) => setUnderstandingInput(evt.target.value)}
+                value={understandingInput}
+                
             />
             <button className="nextPage" onClick={onClick}>Next</button>
             </div>

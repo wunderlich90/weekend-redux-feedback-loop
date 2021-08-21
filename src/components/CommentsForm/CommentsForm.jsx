@@ -1,15 +1,20 @@
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 
 function CommentsForm() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const comments = useSelector(store => store.commentsReducer)
+    const [commentInput, setCommentInput] = useState('');
 
     function onClick() {
-        history.push('/feelings')
+        dispatch({
+            type: 'SET_COMMENTS_DATA',
+            payload: commentInput
+        })
+        history.push('/review')
     }
 
 
@@ -28,7 +33,8 @@ function CommentsForm() {
             <input
                 type="text"
                 placeholder="Comments?"
-                name="userComments"
+                onChange={(evt) => setCommentInput(evt.target.value)}
+                value={commentInput}
             />
             <button className="nextPage" onClick={onClick}>Next</button>
             </div>

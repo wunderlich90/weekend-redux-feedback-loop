@@ -1,15 +1,27 @@
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 
 function FeelingsForm() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const feeling = useSelector(store => store.feelingReducer)
+  
+    const [feelingInput, setFeelingInput] = useState('');
 
     function onClick() {
-        history.push('/understanding')
+        dispatch({
+            type: 'SET_FEELING_DATA',
+            payload: feelingInput
+        })
+
+        if(!feelingInput) {
+            alert('Please enter a feelings value 😁')
+        }
+        else {
+            history.push('/understanding')
+        }
     }
 
 
@@ -28,7 +40,8 @@ function FeelingsForm() {
             <input
                 type="number"
                 placeholder="Feeling?"
-                name="userFeeling"
+                onChange={(evt) => setFeelingInput(evt.target.value)}
+                value={feelingInput}
             />
             <button className="nextPage" onClick={onClick}>Next</button>
             </div>

@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 // Reducers
-const feelingReducer = (state = [], action) => {
+const feelingReducer = (state = '', action) => {
     // feedback added to DB
     switch (action.type) {
         case 'SET_FEELING_DATA':
@@ -21,7 +21,7 @@ const feelingReducer = (state = [], action) => {
     return state;
 };
 
-const understandingReducer = (state = [], action) => {
+const understandingReducer = (state = '', action) => {
     // feedback added to DB
     switch (action.type) {
         case 'SET_UNDERSTANDING_DATA':
@@ -32,7 +32,7 @@ const understandingReducer = (state = [], action) => {
     return state;
 };
 
-const supportReducer = (state = [], action) => {
+const supportReducer = (state = '', action) => {
     // feedback added to DB
     switch (action.type) {
         case 'SET_SUPPORT_DATA':
@@ -43,7 +43,7 @@ const supportReducer = (state = [], action) => {
     return state;
 };
 
-const commentsReducer = (state = [], action) => {
+const commentsReducer = (state = '', action) => {
     // feedback added to DB
     switch (action.type) {
         case 'SET_COMMENTS_DATA':

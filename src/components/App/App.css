@@ -8,6 +8,7 @@
   padding: 20px;
   color: white;
   margin-bottom: 20px;
+  font-size: 35px;
 }
 
 .App-title {
@@ -18,6 +19,14 @@
   font-size: large;
 }
 
+
+
 h4 {
   font-style: italic;
+}
+
+ul {
+  list-style-type: none;
+  color: #033076;
+  font-size: 20px;
 }
