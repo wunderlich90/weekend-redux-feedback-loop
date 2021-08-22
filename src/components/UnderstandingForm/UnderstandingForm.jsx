@@ -40,6 +40,7 @@ function UnderstandingForm() {
                 placeholder="Understanding?"
                 onChange={(evt) => setUnderstandingInput(evt.target.value)}
                 value={understandingInput}
+                required
                 
             />
             <button className="nextPage" onClick={onClick}>Next</button>

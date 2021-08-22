@@ -10,7 +10,8 @@ import CommentsForm from '../CommentsForm/CommentsForm';
 import FeelingsForm from '../FeelingsForm/FeelingsForm';
 import SupportForm from '../SupportForms/SupportForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
-import ReviewFeedback from '../ReviewFeedback/ReviewFeedback'
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import SuccessPage from '../SuccessPage/SuccessPage';
 import { NotificationResponseMessage } from 'pg-protocol/dist/messages';
 
 
@@ -35,6 +36,18 @@ function App() {
       console.error('GET /api/feedback failed', error);
     })
   }
+
+  const addFeedbackItem = (newItem) => {
+    axios
+      .post('/api/feedback', newItem)
+      .then((response) => {
+        getFeedback();
+      })
+      .catch((error) => {
+        alert(`Couldn't add feedback item`);
+        console.error('Error adding to feedback', error);
+      });
+  };
 
   return (
     <div className='App'>
@@ -61,7 +74,11 @@ function App() {
               <CommentsForm/>
             </Route>
             <Route path='/review'>
-              <ReviewFeedback/>
+              <ReviewFeedback
+                addFeedbackItem={addFeedbackItem}/>
+            </Route>
+            <Route path='/success'>
+              <SuccessPage/>
             </Route>
           </div>
         </div>

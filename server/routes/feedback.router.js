@@ -15,4 +15,20 @@ router.get('/', (req, res) => {
     
 })
 
+router.post('/', (req, res) => {
+    const newItem = req.body;
+    const sqlText = `INSERT INTO feedback (feeling, understanding, support, comments)
+        VALUES ($1, $2, $3, $4)`;
+    pool.query(sqlText, [newItem.feelings, newItem.understanding, newItem.support, newItem.comments])
+        .then((result) => {
+            console.log('Added feddback to the DB', newItem);
+            res.sendStatus(201);   
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+            
+        })
+})
+
 module.exports = router;

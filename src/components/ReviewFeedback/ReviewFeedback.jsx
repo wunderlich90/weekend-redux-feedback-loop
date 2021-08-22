@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-function ReviewFeedback() {
+function ReviewFeedback({ addFeedbackItem }) {
 
     const history = useHistory();
 
@@ -10,15 +10,33 @@ function ReviewFeedback() {
     const support = useSelector(store => store.supportReducer);
     const comments = useSelector(store => store.commentsReducer);
 
-    function onClick() {
-        history.push('/feelings')
+
+    const newItem = {
+        feelings: feelings,
+        understanding: understanding,
+        support: support,
+        comments: comments,
     }
+
+    function onClick() {
+        addFeedbackItem(newItem);
+        history.push('/success');
+    }
+  
 
 
 
 
     return (
         <>
+        <head>
+            <script type="text/javascript">
+                function disableBack() { window.history.forward() }
+                setTimeout("disableBack()", 0);
+                window.onunload = function () { null };
+            </script>
+        </head>
+        <div>
             <ul>
                 <li>Feelings: {feelings}</li>
                 <li>Understanding: {understanding}</li>
@@ -27,7 +45,10 @@ function ReviewFeedback() {
             </ul>
 
             <button className="submit" onClick={onClick}>Submit</button>
+        </div>
         </>
+            
+        
     )
 
     

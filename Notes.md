@@ -7,7 +7,7 @@ TODO:
     [x] npm run server
     [x] npm client
 
-[ ] Base Mode
+[x] Base Mode
     [x] Add new Feedback
         [x] 4 views for the form parts
             [x] Feeling
@@ -20,14 +20,25 @@ TODO:
         [x] each step should only allow the user to advance if there was an input provided
         [x] tell the user in some way that an input must be provided
         [x] Comments section does not need to be validated (empty value is ok)
-    [ ] Review component
+    [x] Review component
         [x] Allows user to review their feedback
         [x] does not allow user to change their inout
-        [ ] doees not allow the user to go back
-    [ ] Submit the feedback
+        [x] does not allow the user to go back
+    [x] Submit the feedback
         [x] `Review` step needs a submit button
-            [ ] saves the submission in the DB
-        [ ] user should see a submission success page
-        [ ] success page should have a button to start a new survey
-            [ ] should reset all data 
-            [ ] should take user back to page one
+            [x] saves the submission in the DB
+        [x] user should see a submission success page
+        [x] success page should have a button to start a new survey
+            [x] should reset all data 
+            [x] should take user back to page one
+
+[ ] Stretch Goals (complete in order)
+    [x] allow user to go back and change scores
+    [ ] style using Material-UI
+    [ ] display feedback at route `/admin`
+        [ ] most recent at the top
+        [ ] allow user to delete exisitng feedback
+        [ ] prompt the user prior to deletion
+        [ ] add the baillity too flag feedback entries
+    [ ] deploy to Heroku
+

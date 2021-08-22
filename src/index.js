@@ -11,7 +11,7 @@ import logger from 'redux-logger';
 
 // Reducers
 const feelingReducer = (state = '', action) => {
-    // feedback added to DB
+    // feedback added to store
     switch (action.type) {
         case 'SET_FEELING_DATA':
             return action.payload
@@ -22,7 +22,7 @@ const feelingReducer = (state = '', action) => {
 };
 
 const understandingReducer = (state = '', action) => {
-    // feedback added to DB
+    // feedback added to store
     switch (action.type) {
         case 'SET_UNDERSTANDING_DATA':
             return action.payload
@@ -33,7 +33,7 @@ const understandingReducer = (state = '', action) => {
 };
 
 const supportReducer = (state = '', action) => {
-    // feedback added to DB
+    // feedback added to store
     switch (action.type) {
         case 'SET_SUPPORT_DATA':
             return action.payload
@@ -44,7 +44,7 @@ const supportReducer = (state = '', action) => {
 };
 
 const commentsReducer = (state = '', action) => {
-    // feedback added to DB
+    // feedback added to store
     switch (action.type) {
         case 'SET_COMMENTS_DATA':
             return action.payload
@@ -53,6 +53,10 @@ const commentsReducer = (state = '', action) => {
 
     return state;
 };
+
+const feedbackReducer = (state = [], action) => {
+
+}
 
 
 // Store
